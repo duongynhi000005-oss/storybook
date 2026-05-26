@@ -31,7 +31,8 @@
       "default": "./dist/index.js"
     },
     "./manager": "./dist/manager.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./preset": "./dist/preset.js"
   },
   "files": [
     "dist/**/*",
@@ -41,6 +42,7 @@
     "!src/**/*"
   ],
   "devDependencies": {
+    "http-proxy-middleware": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.9.3"

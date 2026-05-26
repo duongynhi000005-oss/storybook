@@ -11,8 +11,8 @@ const meta = preview.meta({
   component: DetailsScreen,
   parameters: { layout: 'fullscreen' },
   args: {
-    title: 'Toolbar',
-    storyId: 'components-toolbar--basic',
+    title: 'Guide Page',
+    storyId: 'manager-settings-guidepage--default',
     storyIndex: 1,
     totalStories: 3,
     backHref: buildReviewChangesSummaryHref(),
@@ -26,7 +26,6 @@ const meta = preview.meta({
       collectionIndex: 0,
       storyIndex: 2,
     }),
-    branchName: 'update/button-weight-and-padding',
   },
 });
 
@@ -34,16 +33,19 @@ export const Default = meta.story({
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(await canvas.findByRole('button', { name: '2/3' })).toBeInTheDocument();
-    await expect(await canvas.findByText('Toolbar')).toBeInTheDocument();
+    await expect(await canvas.findByText('Guide Page')).toBeInTheDocument();
     await expect(
-      await canvas.findByText('Latest on update/button-weight-and-padding')
+      await canvas.findByTitle('Baseline manager-settings-guidepage--default')
+    ).toBeInTheDocument();
+    await expect(
+      await canvas.findByTitle('Latest manager-settings-guidepage--default')
     ).toBeInTheDocument();
   },
 });
 
 export const WrapAroundNavigation = meta.story({
   args: {
-    storyId: 'components-toolbar--basic',
+    storyId: 'manager-settings-guidepage--default',
     storyIndex: 0,
     totalStories: 3,
     previousHref: buildReviewChangesDetailHref({
